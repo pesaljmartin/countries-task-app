@@ -1,0 +1,1 @@
+export type TParams = { value: string }
