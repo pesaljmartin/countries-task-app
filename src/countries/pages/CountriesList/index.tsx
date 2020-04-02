@@ -8,12 +8,10 @@ const CountriesList: FC = observer(() => {
 
   useEffect(() => {
     rootStore.filteredCountriesStore.filterCountriesByName('');
-    rootStore.filteredCountriesStore.setInitialOptions();
   }, [rootStore.countriesStore.countries, rootStore]);
 
   const getFilteredCountriesByName = (event: ChangeEvent<HTMLInputElement>): void => {
     const { value } = event.target;
-
     rootStore.filteredCountriesStore.filterCountriesByName(value);
   }
 

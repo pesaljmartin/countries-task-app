@@ -22,7 +22,6 @@ const BorderFilterSelect: FC<BorderFilter> = ({ options, handleChange }) => {
 
   const onChange = (event: ChangeEvent<{ value: unknown }>): void => {
     setState(event.target.value as string);
-
     handleChange(event.target.value as string);
   };
 

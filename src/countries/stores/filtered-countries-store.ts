@@ -1,24 +1,17 @@
-import { action, observable } from "mobx";
+import { action, computed, observable } from "mobx";
 import { Country } from "../models/country";
-import { Option } from "../models/option";
 import { RootStore } from "./root-store";
 
 export class FilteredCountriesStore {
-  rootStore: RootStore
 
-  constructor(rootStore: RootStore) {
-    this.rootStore = rootStore
-  }
+  constructor(private rootStore: RootStore) { }
 
   @observable
   filteredCountries = this.rootStore.countriesStore.countries;
 
-  @observable
-  borderFilterOptions = [] as Option[]
-
-  @action
-  setInitialOptions() {
-    this.borderFilterOptions = this.rootStore.countriesStore.countries.map((item: Country) => {
+  @computed get
+    borderFilterOptions() {
+    return this.rootStore.countriesStore.countries.map((item: Country) => {
       return {
         label: item.name,
         value: item.alpha3Code

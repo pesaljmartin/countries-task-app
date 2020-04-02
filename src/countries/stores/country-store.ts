@@ -3,11 +3,8 @@ import { Country } from '../models/country';
 import { RootStore } from './root-store';
 
 export class CountryStore {
-  rootStore: RootStore
 
-  constructor(rootStore: RootStore) {
-    this.rootStore = rootStore
-  }
+  constructor(private rootStore: RootStore) { }
 
   @observable
   country = {} as Country | undefined;
